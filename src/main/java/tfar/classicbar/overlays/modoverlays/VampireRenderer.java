@@ -6,6 +6,7 @@ import de.teamlapen.vampirism.util.Helper;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 
@@ -18,7 +19,7 @@ import static tfar.classicbar.config.ModConfig.numbers;
     Class handles the drawing of the Betweenlands Decay bar
  */
 
-public class VampireRenderer implements IBarOverlay {
+public class VampireRenderer extends AbstractModRenderer {
 
     private static final ResourceLocation VAMPIRISM_ICONS =  new ResourceLocation("vampirism:textures/gui/icons.png");
     public boolean side;

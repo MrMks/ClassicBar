@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 
@@ -28,8 +29,8 @@ public class AbsorptionRenderer implements IBarOverlay {
   }
 
   @Override
-  public boolean shouldRender(EntityPlayer player) {
-    return player.getAbsorptionAmount() > 0;
+  public boolean shouldRender(EntityPlayer player, RenderGameOverlayEvent.ElementType type) {
+    return player.getAbsorptionAmount() > 0 && type == RenderGameOverlayEvent.ElementType.HEALTH;
   }
 
   @Override

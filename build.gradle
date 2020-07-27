@@ -8,9 +8,6 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.wynprice.cursemaven" version "2.1.0"
-}
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
@@ -40,12 +37,16 @@ repositories {
     maven {
         url 'https://maven.mcmoddev.com' 
     }
+	
+	maven {
+        url = "https://www.cursemaven.com"
+    }
 
-    maven {
-        name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
-    }
-    }
+//    maven {
+//        name = "CurseForge"
+//        url = "https://minecraft.curseforge.com/api/maven/"
+//    }
+}
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -64,12 +65,17 @@ dependencies {
     // except that these dependencies get remapped to your current MCP mappings
    // deobfProvided "randomthings:RandomThings:MC${mc_version}:4.2.7"
     //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    deobfCompile "com.azanor:Baubles:${baubles_version}"
+    deobfProvided "com.azanor:Baubles:${baubles_version}"
     //deobfCompile "betterdiving:BetterDiving:${mc_version}-1.3.42"
-    deobfProvided "toughasnails:ToughAsNails:${mc_version}:3.1.0.139-universal"
-    deobfProvided "randomthings:RandomThings:MC${mc_version}:4.2.6"
-    deobfCompile "betweenlands:TheBetweenlands:3.4.11-universal"
-    deobfCompile "curse.maven:vampirism-become-a-vampire:2832151"
+    //deobfProvided "toughasnails:ToughAsNails:${mc_version}:3.1.0.139-universal"
+    //deobfProvided "randomthings:RandomThings:MC${mc_version}:4.2.6"
+    //deobfCompile "betweenlands:TheBetweenlands:3.4.11-universal"
+	
+    deobfProvided "curse.maven:angry-pixel-the-betweenlands-mod:2766910"
+    deobfProvided "curse.maven:random-things:2667184"
+    deobfProvided "curse.maven:tough-as-nails:2644652"
+	
+    deobfProvided "curse.maven:vampirism-become-a-vampire:2832151"
 
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
@@ -96,4 +102,8 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+runClient {
+    args "--username", "miuela"
 }

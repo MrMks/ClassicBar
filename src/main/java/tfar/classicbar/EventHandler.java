@@ -39,6 +39,7 @@ public class EventHandler {
       case FOOD:
       case HEALTH:
         event.setCanceled(true);
+        break;
       default:
         return;
       case ALL:
@@ -54,7 +55,7 @@ public class EventHandler {
     int initial_left_height = GuiIngameForge.left_height;
 
     mc.getTextureManager().bindTexture(ModUtils.ICON_BAR);
-    Supplier<Stream<IBarOverlay>> supplier = () -> combined.stream().filter(iBarOverlay -> iBarOverlay.shouldRender(player));
+    Supplier<Stream<IBarOverlay>> supplier = () -> combined.stream().filter(iBarOverlay -> iBarOverlay.shouldRender(player, event.getType()));
 
     supplier.get().forEach(iBarOverlay -> {
       iBarOverlay.renderBar(player, scaledWidth, scaledHeight);
@@ -80,6 +81,7 @@ public class EventHandler {
 
       supplier.get().forEach(iBarOverlay -> {
         iBarOverlay.renderIcon(player, scaledWidth, scaledHeight);
+        mc.getTextureManager().bindTexture(ModUtils.ICON_BAR);
         if (iBarOverlay.rightHandSide())
           GuiIngameForge.right_height += 10;
         else GuiIngameForge.left_height += 10;

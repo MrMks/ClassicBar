@@ -2,6 +2,7 @@ package tfar.classicbar.overlays.modoverlays;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 import toughasnails.api.TANCapabilities;
@@ -19,7 +20,7 @@ import static toughasnails.handler.thirst.ThirstOverlayHandler.OVERLAY;
     Class handles the drawing of the thirst bar
  */
 
-public class ThirstBarRenderer implements IBarOverlay {
+public class ThirstBarRenderer extends AbstractModRenderer {
 
   public boolean side;
 

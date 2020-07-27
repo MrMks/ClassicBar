@@ -3,6 +3,7 @@ package tfar.classicbar.overlays.modoverlays;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 import thebetweenlands.api.capability.IDecayCapability;
@@ -18,7 +19,7 @@ import static tfar.classicbar.config.ModConfig.numbers;
     Class handles the drawing of the Betweenlands Decay bar
  */
 
-public class DecayRenderer implements IBarOverlay {
+public class DecayRenderer extends AbstractModRenderer {
 
     private static final ResourceLocation DECAY_BAR_TEXTURE = new ResourceLocation("thebetweenlands:textures/gui/decay_bar.png");
 

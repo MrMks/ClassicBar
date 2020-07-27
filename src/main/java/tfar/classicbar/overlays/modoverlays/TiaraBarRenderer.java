@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
@@ -19,7 +20,7 @@ import static tfar.classicbar.config.ModConfig.*;
 /*
     Class handles the drawing of the tiara
  */
-public class TiaraBarRenderer implements IBarOverlay {
+public class TiaraBarRenderer extends AbstractModRenderer {
 
   @GameRegistry.ObjectHolder("botania:flighttiara")
   public static final Item tiara = null;

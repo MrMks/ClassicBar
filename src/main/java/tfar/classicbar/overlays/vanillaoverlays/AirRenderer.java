@@ -3,6 +3,7 @@ package tfar.classicbar.overlays.vanillaoverlays;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 
@@ -26,8 +27,8 @@ public class AirRenderer implements IBarOverlay {
   }
 
   @Override
-  public boolean shouldRender(EntityPlayer player) {
-    return player.getAir() < 300;
+  public boolean shouldRender(EntityPlayer player, RenderGameOverlayEvent.ElementType type) {
+    return player.getAir() < 300 && type == RenderGameOverlayEvent.ElementType.AIR;
   }
 
   @Override

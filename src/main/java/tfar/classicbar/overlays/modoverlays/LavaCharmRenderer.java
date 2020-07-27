@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import tfar.classicbar.ClassicBar;
 import tfar.classicbar.Color;
@@ -21,7 +22,7 @@ import static tfar.classicbar.config.ModConfig.*;
 
 /*
     Class handles the drawing of the lava charm*/
-public class LavaCharmRenderer implements IBarOverlay {
+public class LavaCharmRenderer extends AbstractModRenderer {
 
   @GameRegistry.ObjectHolder("randomthings:lavacharm")
   public static final Item lava_charm = null;

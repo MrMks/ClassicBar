@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraftforge.client.GuiIngameForge;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
 
@@ -39,8 +40,8 @@ public class HealthRenderer implements IBarOverlay {
   }
 
   @Override
-  public boolean shouldRender(EntityPlayer player) {
-    return true;
+  public boolean shouldRender(EntityPlayer player, RenderGameOverlayEvent.ElementType type) {
+    return type == RenderGameOverlayEvent.ElementType.HEALTH;
   }
 
   @Override

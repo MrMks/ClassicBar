@@ -27,7 +27,7 @@ import static tfar.classicbar.overlays.modoverlays.LavaCharmRenderer.ICON_LAVA;
 
 /*
     Class handles the drawing of the lava charm*/
-public class LavaWaderBaubleRenderer implements IBarOverlay {
+public class LavaWaderBaubleRenderer extends AbstractModRenderer {
 
   @GameRegistry.ObjectHolder("lavawaderbauble:lavawaderbauble")
   public static final Item LavaWaderBauble = null;

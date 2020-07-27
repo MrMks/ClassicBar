@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.ISpecialArmor;
 import tfar.classicbar.Color;
 import tfar.classicbar.overlays.IBarOverlay;
@@ -36,8 +37,8 @@ public class ArmorRenderer implements IBarOverlay {
   }
 
   @Override
-  public boolean shouldRender(EntityPlayer player) {
-    return calculateArmorValue() >= 1;
+  public boolean shouldRender(EntityPlayer player, RenderGameOverlayEvent.ElementType type) {
+    return calculateArmorValue() >= 1 && type == RenderGameOverlayEvent.ElementType.ARMOR;
   }
 
   @Override

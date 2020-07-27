@@ -1,9 +1,11 @@
 package tfar.classicbar.overlays.vanillaoverlays;
 
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import tfar.classicbar.overlays.IBarOverlay;
 
 import static tfar.classicbar.ColorUtils.calculateScaledColor;
@@ -31,8 +33,8 @@ public class MountHealthRenderer implements IBarOverlay {
   }
 
   @Override
-  public boolean shouldRender(EntityPlayer player) {
-    return player.getRidingEntity() instanceof EntityLivingBase;
+  public boolean shouldRender(EntityPlayer player, RenderGameOverlayEvent.ElementType type) {
+    return player.getRidingEntity() instanceof EntityLivingBase && type == RenderGameOverlayEvent.ElementType.HEALTHMOUNT;
   }
 
   @Override
@@ -102,6 +104,8 @@ public class MountHealthRenderer implements IBarOverlay {
   public void renderIcon(EntityPlayer player, int width, int height) {
     int xStart = width / 2 + 10;
     int yStart = height - getSidedOffset();
+
+    mc.getTextureManager().bindTexture(Gui.ICONS);
     //heart background
     drawTexturedModalRect(xStart + 82, yStart, 16, 0, 9, 9);
     //heart
